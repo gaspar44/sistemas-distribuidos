@@ -45,9 +45,17 @@ int main (int argc, char *argv[]) {
 		exit(5);
 	}
 
-	printf("Fecha Hora sobre el host %s = %ld\n", server, *dResult);
+	printf("Fecha Hora sobre el host slave = %ld\n", *dResult);
+
+	if ((sresult = str_date_1(dResult, cl)) == NULL) {
+		clnt_perror(cl, server);
+		exit(4);	
+	}
+
+	printf("Fecha Hora sobre el host slave = %s\n", *sresult);
 
 	clnt_destroy(cl);
+	free(clientTimeInterval);
 
-	return(0);
+	return 0;
 }
