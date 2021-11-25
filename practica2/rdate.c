@@ -38,7 +38,8 @@ int main (int argc, char *argv[]) {
 	printf("Fecha Hora sobre el host %s = %s\n", server, *sresult);
 
 	long *clientTimeInterval = malloc(sizeof(long));
-	*clientTimeInterval = 1636051066L;
+	//*clientTimeInterval = 1636051066L;
+	*clientTimeInterval =  time((long *)0) + 5000L;
 
 	if ((dResult = bin_date_difference_1(clientTimeInterval, cl)) == NULL){
 		clnt_perror(cl, server);

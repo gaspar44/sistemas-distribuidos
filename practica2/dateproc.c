@@ -17,6 +17,6 @@ char **str_date_1_svc(long *bintime, struct svc_req *arg2) {
 
 long *bin_date_difference_1_svc(long *clientTime,struct svc_req *arg2) {
     static long timeval;
-    timeval = time((long *)0) - *clientTime;
+    timeval = *clientTime - time((long *)0);
     return(&timeval);
 }
