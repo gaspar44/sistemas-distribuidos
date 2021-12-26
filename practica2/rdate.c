@@ -48,7 +48,7 @@ int main (int argc, char *argv[]) {
 
 	printf("Fecha Hora sobre el host slave = %ld\n", *dResult);
 
-	if ((sresult = str_date_1(dResult, cl)) == NULL) {
+	if ((sresult = str_date_difference_1(clientTimeInterval, cl)) == NULL) {
 		clnt_perror(cl, server);
 		exit(4);	
 	}
